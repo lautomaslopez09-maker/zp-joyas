@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Catálogo | ZP Joyas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a href="../index.html" class="logo">
+          <span class="logo-zp"> ZP </span>
+
+          <span class="logo-text"> JOYAS </span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="../index.html"> Inicio </a>
+          </li>
+
+          <li>
+            <a href="./catalogo.html"> Catálogo </a>
+          </li>
+
+          <li>
+            <a href="../index.html#nosotros"> Nosotros </a>
+          </li>
+
+          <li>
+            <a
+              href="https://wa.me/543815085328"
+              target="_blank"
+              class="nav-cta"
+            >
+              Comprar ahora
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="catalog-page">
+      <section class="catalog-header">
+        <p class="eyebrow">ZP JOYAS</p>
+
+        <h1>
+          Nuestro
+          <span>catálogo</span>
+        </h1>
+
+        <p>Encontrá la pieza que mejor representa tu estilo.</p>
+      </section>
+
+      <section>
+        <div class="catalog-controls">
+          <div class="catalog-categories">
+            <button class="catalog-category active" data-category="todos">
+              Todos
+            </button>
+
+            <button class="catalog-category" data-category="cadenas">
+              Cadenas
+            </button>
+
+            <button class="catalog-category" data-category="anillos">
+              Anillos
+            </button>
+
+            <button class="catalog-category" data-category="pulseras">
+              Pulseras
+            </button>
+
+            <button class="catalog-category" data-category="diges">
+              Dijes
+            </button>   
+          </div>
+
+          <select id="sortProducts" class="sort-select">
+            <option value="default">Ordenar productos</option>
+
+            <option value="low">Precio: menor a mayor</option>
+
+            <option value="high">Precio: mayor a menor</option>
+          </select>
+        </div>
+
+        <div class="catalog-container">
+          <div class="products-grid" id="catalogProducts"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo footer-logo">
+            <span class="logo-zp"> ZP </span>
+
+            <span class="logo-text"> JOYAS </span>
+          </div>
+
+          <p>Elegancia, personalidad y detalles que perduran.</p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Productos</h3>
+
+          <a href="#"> Cadenas </a>
+
+          <a href="#"> Anillos </a>
+
+          <a href="#"> Pulseras </a>
+
+          <a href="#"> Dijes </a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contacto</h3>
+
+          <a href="tel:+543815085328"> +54 381 508-5328 </a>
+
+          <a href="https://wa.me/543815085328" target="_blank"> WhatsApp </a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Redes</h3>
+
+          <a href="#"> Instagram </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 ZP Joyas.</p>
+
+        <p>Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <a href="../https://wa.me/543815085328" target="_blank" class="whatsapp-float">
+      ✆
+    </a>
+
+    <script src="../js/productos.js"></script>
+
+    <script>
+      const container = document.getElementById("catalogProducts");
+
+      const categoryButtons = document.querySelectorAll(".catalog-category");
+
+      const sortSelect = document.getElementById("sortProducts");
+
+      let categoriaActual = "todos";
+
+      function renderCatalogo() {
+        let lista = [...productos];
+
+        if (categoriaActual !== "todos") {
+          lista = lista.filter(
+            (producto) => producto.categoria === categoriaActual,
+          );
+        }
+
+        const orden = sortSelect.value;
+
+        if (orden === "low") {
+          lista.sort((a, b) => a.precio - b.precio);
+        }
+
+        if (orden === "high") {
+          lista.sort((a, b) => b.precio - a.precio);
+        }
+
+        container.innerHTML = lista.map(crearCardCatalogo).join("");
+      }
+
+      function crearCardCatalogo(producto) {
+        return `
+
+        <article class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="${producto.imagen}"
+                    alt="${producto.nombre}"
+                    loading="lazy"
+                >
+
+                <span class="product-tag">
+                    ZP JOYAS
+                </span>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    ${producto.categoria}
+                </span>
+
+                <h3 class="product-name">
+                    ${producto.nombre}
+                </h3>
+
+                <div class="product-price">
+
+                    $${producto.precio.toLocaleString("es-AR")}
+
+                </div>
+
+
+                <a
+                    href="producto.html?id=${producto.id}"
+                    class="product-button">
+
+                    Ver detalle →
+
+                </a>
+
+            </div>
+
+        </article>
+
+    `;
+      }
+
+      categoryButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          categoryButtons.forEach((btn) => btn.classList.remove("active"));
+
+          button.classList.add("active");
+
+          categoriaActual = button.dataset.category;
+
+          renderCatalogo();
+        });
+      });
+
+      sortSelect.addEventListener("change", renderCatalogo);
+
+      renderCatalogo();
+    </script>
+  </body>
+</html>

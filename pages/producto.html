@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Producto | ZP Joyas</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a href="../index.html" class="logo">
+          <span class="logo-zp"> ZP </span>
+
+          <span class="logo-text"> JOYAS </span>
+        </a>
+
+        <ul class="nav-links">
+          <li>
+            <a href="../index.html"> Inicio </a>
+          </li>
+
+          <li>
+            <a href="../catalogo.html"> Catálogo </a>
+          </li>
+
+          <li>
+            <a
+              href="https://wa.me/543815085328"
+              target="_blank"
+              class="nav-cta"
+            >
+              Comprar ahora
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="product-detail">
+        <div class="detail-image">
+          <img id="detailImage" src="" alt="Producto ZP Joyas" />
+        </div>
+
+        <div class="detail-content">
+          <span class="detail-category" id="detailCategory"> </span>
+
+          <h1 id="detailName"></h1>
+
+          <div class="detail-price" id="detailPrice"></div>
+
+          <p class="detail-description" id="detailDescription"></p>
+
+          <p class="detail-description">
+            Consultanos por disponibilidad, formas de pago y opciones de
+            entrega.
+          </p>
+
+            <a
+             id="buyButton"
+             class="whatsapp-buy"
+             href="https://wa.me/543815085328"
+             target="_blank"
+             rel="noopener noreferrer">
+
+             Consultar por WhatsApp
+
+            </a>
+
+          <br /><br />
+
+          <a href="../catalogo.html" class="text-link">
+            ← Volver al catálogo
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-zp"> ZP </span>
+
+            <span class="logo-text"> JOYAS </span>
+          </div>
+
+          <p>Elegancia, personalidad y detalles que perduran.</p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contacto</h3>
+
+          <a href="tel:+543815085328"> +54 381 508-5328 </a>
+
+          <a href="https://wa.me/543815085328" target="_blank"> WhatsApp </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 ZP Joyas.</p>
+      </div>
+    </footer>
+
+    <a href="https://wa.me/543815085328" target="_blank" class="whatsapp-float">
+      ✆
+    </a>
+
+    <script src="../js/productos.js"></script>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+
+      const productId = Number(params.get("id"));
+
+      const producto = productos.find((producto) => producto.id === productId);
+
+      if (producto) {
+        document.title = `${producto.nombre} | ZP Joyas`;
+
+        document.getElementById("detailImage").src = producto.imagen;
+
+        document.getElementById("detailImage").alt = producto.nombre;
+
+        document.getElementById("detailCategory").textContent =
+          producto.categoria;
+
+        document.getElementById("detailName").textContent = producto.nombre;
+
+        document.getElementById("detailPrice").textContent =
+          `$${producto.precio.toLocaleString("es-AR")}`;
+
+        document.getElementById("detailDescription").textContent =
+          producto.descripcion;
+
+        document
+          .getElementById("buyButton")
+          .addEventListener("click", () => consultarWhatsApp(producto));
+      } else {
+        document.querySelector(".product-detail").innerHTML = `
+    
+
+        <div style="
+            grid-column: 1 / -1;
+            text-align: center;
+        ">
+
+            <h1>
+                Producto no encontrado
+            </h1>
+
+            <br>
+
+            <a
+                href="./catalogo.html"
+                class="catalog-main-button">
+
+                Volver al catálogo
+
+            </a>
+
+        </div>
+
+    `;
+      }
+    </script>
+  </body>
+</html>

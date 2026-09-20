@@ -1,0 +1,442 @@
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="ZP Joyas - Joyas enchapadas en oro. Cadenas, anillos, pulseras y dijes."
+    />
+    <meta
+      name="keywords"
+      content="joyas, oro, cadenas, anillos, pulseras, dijes, ZP Joyas"
+    />
+    <meta name="author" content="ZP Joyas" />
+
+    <title>ZP Joyas | Elegancia que perdura</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="header" id="inicio">
+      <nav class="navbar">
+        <a href="./index.html" class="logo">
+          <span class="logo-zp">ZP</span>
+          <span class="logo-text">JOYAS</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="./index.html">Inicio</a>
+          </li>
+
+          <li>
+            <a href="#stock">Productos</a>
+          </li>
+
+          <li>
+            <a href="../pages/catalogo.html">Catálogo</a>
+          </li>
+
+          <li>
+            <a href="#nosotros">Nosotros</a>
+          </li>
+
+          <li>
+            <a href="#contacto">Contacto</a>
+          </li>
+
+          <li>
+            <a
+              href="https://wa.me/543815085328?text=Hola%20ZP%20Joyas,%20quiero%20consultar%20por%20una%20joya."
+              target="_blank"
+              class="nav-cta"
+            >
+              Comprar ahora
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+      <section class="hero">
+        <div class="hero-slider">
+          <div class="hero-slide active">
+            <img src="img/hero-1.jpg" alt="Cadenas enchapadas en oro" />
+          </div>
+
+          <div class="hero-slide">
+            <img src="img/hero-2.jpg" alt="Anillos dorados" />
+          </div>
+
+          <div class="hero-slide">
+            <img src="img/hero-3.jpg" alt="Pulseras doradas" />
+          </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">ZP JOYAS</p>
+
+          <h1>
+            El detalle que
+            <span>habla por vos.</span>
+          </h1>
+
+          <p>
+            Descubrí nuestra colección de joyas enchapadas en oro diseñadas para
+            acompañar tus mejores momentos.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#stock" class="btn btn-gold"> Ver colección </a>
+
+            <a
+              href="https://wa.me/543815085328?text=Hola%20ZP%20Joyas,%20quiero%20hacer%20una%20consulta."
+              target="_blank"
+              class="btn btn-outline"
+            >
+              Consultar
+            </a>
+          </div>
+        </div>
+
+        <div class="slider-controls">
+          <button class="slider-btn" id="prevSlide">‹</button>
+
+          <div class="slider-dots" id="sliderDots"></div>
+
+          <button class="slider-btn" id="nextSlide">›</button>
+        </div>
+      </section>
+
+      <!-- ================= BENEFICIOS ================= -->
+
+      <section class="benefits">
+        <div class="benefit">
+          <span>✦</span>
+          <div>
+            <h3>Calidad</h3>
+            <p>Detalles seleccionados cuidadosamente.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <span>◇</span>
+          <div>
+            <h3>Elegancia</h3>
+            <p>Diseños pensados para destacar.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <span>♢</span>
+          <div>
+            <h3>Atención personalizada</h3>
+            <p>Te ayudamos a elegir tu próxima joya.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <span>✓</span>
+          <div>
+            <h3>Compra fácil</h3>
+            <p>Consultá directamente por WhatsApp.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STOCK ================= -->
+
+      <section class="stock section" id="stock">
+        <div class="section-heading">
+          <p class="eyebrow dark">DESCUBRÍ NUESTRA COLECCIÓN</p>
+
+          <h2>Nuestro <span>stock</span></h2>
+
+          <p>Encontrá esa pieza especial que estabas buscando.</p>
+        </div>
+
+        <div class="category-buttons">
+          <button class="category-btn active" data-category="cadenas">
+            Cadenas
+          </button>
+
+          <button class="category-btn" data-category="anillos">Anillos</button>
+
+          <button class="category-btn" data-category="pulseras">
+            Pulseras
+          </button>
+
+          <button class="category-btn" data-category="diges">Dijes</button>
+        </div>
+
+        <div class="products-grid" id="featuredProducts"></div>
+
+        <div class="catalog-button-container">
+          <a href="../pages/catalogo.html" class="catalog-main-button">
+            <span> Explorar catálogo completo </span>
+
+            <strong>→</strong>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= GALERIA ================= -->
+
+      <section class="gallery-section">
+        <div class="section-heading">
+          <p class="eyebrow dark">DETALLES QUE HACEN LA DIFERENCIA</p>
+
+          <h2>Viví la experiencia <span>ZP</span></h2>
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-card">
+            <img src="img/hero-1.jpg" alt="Colección de cadenas" />
+            <div class="gallery-overlay">
+              <span>Cadenas</span>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <img src="img/hero-2.jpg" alt="Colección de anillos" />
+            <div class="gallery-overlay">
+              <span>Anillos</span>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <img src="img/hero-3.jpg" alt="Colección de pulseras" />
+            <div class="gallery-overlay">
+              <span>Pulseras</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NOSOTROS ================= -->
+
+      <section class="about section" id="nosotros">
+        <div class="about-image">
+          <img src="img/hero-2.jpg" alt="ZP Joyas" />
+
+          <div class="about-badge">
+            <strong>ZP</strong>
+            <span>JOYAS</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="eyebrow dark">SOBRE NOSOTROS</p>
+
+          <h2>
+            Una joya puede
+            <span>contar una historia.</span>
+          </h2>
+
+          <p>
+            En ZP Joyas creemos que una joya es mucho más que un accesorio. Es
+            una forma de expresar tu personalidad, guardar un recuerdo y
+            acompañar momentos importantes.
+          </p>
+
+          <p>
+            Seleccionamos diseños pensados para que puedas encontrar piezas
+            elegantes y versátiles para todos los días o para ocasiones
+            especiales.
+          </p>
+
+          <a href="../pages/catalogo.html" class="text-link">
+            Conocé nuestra colección →
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= TESTIMONIOS ================= -->
+
+      <section class="testimonials section">
+        <div class="section-heading">
+          <p class="eyebrow dark">EXPERIENCIAS ZP</p>
+
+          <h2>Lo que dicen nuestros <span>clientes</span></h2>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial">
+            <div class="stars">★★★★★</div>
+
+            <p>
+              "La cadena es hermosa y tiene un brillo increíble. La atención fue
+              excelente y me ayudaron a elegir el modelo perfecto."
+            </p>
+
+            <div class="client">
+              <div class="client-avatar">M</div>
+              <div>
+                <strong>Martina R.</strong>
+                <span>Cliente ZP</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars">★★★★★</div>
+
+            <p>
+              "Compré un anillo para regalar y quedé encantada. La presentación
+              y todos los detalles estuvieron muy cuidados."
+            </p>
+
+            <div class="client">
+              <div class="client-avatar">S</div>
+              <div>
+                <strong>Lautaro M.</strong>
+                <span>Cliente ZP</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial">
+            <div class="stars">★★★★★</div>
+
+            <p>
+              "Muy buena atención desde el primer mensaje. Me mostraron varias
+              opciones y pude elegir exactamente lo que buscaba."
+            </p>
+
+            <div class="client">
+              <div class="client-avatar">L</div>
+              <div>
+                <strong>Lucía P.</strong>
+                <span>Cliente ZP</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= CTA ================= -->
+
+      <section class="cta-section">
+        <div class="cta-content">
+          <p class="eyebrow">TU PRÓXIMA JOYA TE ESTÁ ESPERANDO</p>
+
+          <h2>
+            Encontrá una pieza
+            <span>para vos.</span>
+          </h2>
+
+          <p>
+            Consultanos por disponibilidad, precios y modelos directamente por
+            WhatsApp.
+          </p>
+
+          <a
+            href="https://wa.me/543815085328?text=Hola%20ZP%20Joyas,%20quiero%20consultar%20por%20el%20catálogo."
+            target="_blank"
+            class="btn btn-gold"
+          >
+            Hablar por WhatsApp
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer" id="contacto">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="#" class="logo footer-logo">
+            <span class="logo-zp">ZP</span>
+            <span class="logo-text">JOYAS</span>
+          </a>
+
+          <p>Elegancia, personalidad y detalles que perduran.</p>
+
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"> Instagram </a>
+
+            <a href="https://wa.me/543815085328" target="_blank"> WhatsApp </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Productos</h3>
+
+          <a href="catalogo.html?categoria=cadenas"> Cadenas </a>
+
+          <a href="catalogo.html?categoria=anillos"> Anillos </a>
+
+          <a href="catalogo.html?categoria=pulseras"> Pulseras </a>
+
+          <a href="catalogo.html?categoria=diges"> Dijes </a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Información</h3>
+
+          <a href="#nosotros"> Nosotros </a>
+
+          <a href="catalogo.html"> Catálogo </a>
+
+          <a href="#contacto"> Contacto </a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contacto</h3>
+
+          <a href="tel:+543815085328"> +54 381 508-5328 </a>
+
+          <a href="https://wa.me/543815085328" target="_blank">
+            Consultar por WhatsApp
+          </a>
+
+          <span> Tucumán, Argentina </span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 ZP Joyas. Todos los derechos reservados.</p>
+
+        <p>Diseñado con elegancia.</p>
+      </div>
+    </footer>
+
+    <!-- ================= WHATSAPP FLOTANTE ================= -->
+
+    <a
+      href="https://wa.me/543815085328?text=Hola%20ZP%20Joyas,%20quiero%20hacer%20una%20consulta."
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Contactar por WhatsApp"
+    >
+      <span>✆</span>
+
+      <div class="whatsapp-tooltip">¿Querés consultar?</div>
+    </a>
+
+    <script src="./js/productos.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
